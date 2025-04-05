@@ -205,23 +205,93 @@
           >
             <!-- Display the selected currency -->
             <router-link to="#" class="selected-text text-white text-sm py-8">
-              {{ selectedCurrency }}
+              {{ activeCurrency }}
             </router-link>
             <ul
               class="selectable-text-list on-hover-dropdown common-dropdown common-dropdown--sm max-h-200 scroll-sm px-0 py-8"
             >
-              <li v-for="(currency, index) in currencies" :key="index">
+              <li>
                 <router-link
                   to="#"
                   class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex-align gap-8 rounded-0"
-                  @click="handleCurrencyChange(currency.name)"
+                  @click="handleCurrencyChange('USD')"
                 >
                   <img
-                    :src="currency.flag"
+                    src="/assets/images/thumbs/flag1.png"
                     alt=""
                     class="w-16 h-12 rounded-4 border border-gray-100"
                   />
-                  {{ currency.name }}
+                  USD
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="#"
+                  class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex-align gap-8 rounded-0"
+                  @click="handleCurrencyChange('Yen')"
+                >
+                  <img
+                    src="/assets/images/thumbs/flag2.png"
+                    alt=""
+                    class="w-16 h-12 rounded-4 border border-gray-100"
+                  />
+                  Yen
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="#"
+                  class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex-align gap-8 rounded-0"
+                  @click="handleCurrencyChange('Franc')"
+                >
+                  <img
+                    src="/assets/images/thumbs/flag3.png"
+                    alt=""
+                    class="w-16 h-12 rounded-4 border border-gray-100"
+                  />
+                  Franc
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="#"
+                  class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex-align gap-8 rounded-0"
+                  @click="handleCurrencyChange('EURO')"
+                >
+                  <img
+                    src="/assets/images/thumbs/flag4.png"
+                    alt=""
+                    class="w-16 h-12 rounded-4 border border-gray-100"
+                  />
+                  EURO
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="#"
+                  class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex-align gap-8 rounded-0"
+                  @click="handleCurrencyChange('BDT')"
+                >
+                  <img
+                    src="/assets/images/thumbs/flag6.png"
+                    alt=""
+                    class="w-16 h-12 rounded-4 border border-gray-100"
+                  />
+                  BDT
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="#"
+                  class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex-align gap-8 rounded-0"
+                  @click="handleCurrencyChange('WON')"
+                >
+                  <img
+                    src="/assets/images/thumbs/flag5.png"
+                    alt=""
+                    class="w-16 h-12 rounded-4 border border-gray-100"
+                  />
+                  WON
                 </router-link>
               </li>
             </ul>
@@ -396,6 +466,7 @@ export default {
       // Search control
       activeSearch: false,
       activeLanguage: "English",
+      activeCurrency: "USD",
     };
   },
   methods: {
@@ -417,6 +488,10 @@ export default {
     // Toggle language
     handleLanguageChange(language) {
       this.activeLanguage = language;
+    },
+    // Toggle currency
+    handleCurrencyChange(currency) {
+      this.activeCurrency = currency;
     },
   },
 };
